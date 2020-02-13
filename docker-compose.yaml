@@ -1,0 +1,75 @@
+version: "3.7"
+
+services:
+  ck1:
+    image: yandex/clickhouse-server
+    ulimits:
+      nofile:
+        soft: 300001
+        hard: 300002
+    volumes:
+      - ./conf/metrika1.xml:/etc/metrika.xml
+    depends_on:
+      - zk1
+
+  ck2:
+    image: yandex/clickhouse-server
+    ulimits:
+      nofile:
+        soft: 300001
+        hard: 300002
+    volumes:
+      - ./conf/metrika2.xml:/etc/metrika.xml
+    depends_on:
+      - zk1
+
+  ck3:
+    image: yandex/clickhouse-server
+    ulimits:
+      nofile:
+        soft: 300001
+        hard: 300002
+    volumes:
+      - ./conf/metrika3.xml:/etc/metrika.xml
+    depends_on:
+      - zk1
+
+  ck4:
+    image: yandex/clickhouse-server
+    ulimits:
+      nofile:
+        soft: 300001
+        hard: 300002
+    volumes:
+      - ./conf/metrika4.xml:/etc/metrika.xml
+    depends_on:
+      - zk1
+
+  ck5:
+    image: yandex/clickhouse-server
+    ulimits:
+      nofile:
+        soft: 300001
+        hard: 300002
+    volumes:
+      - ./conf/metrika5.xml:/etc/metrika.xml
+    depends_on:
+      - zk1
+
+  ck6:
+    image: yandex/clickhouse-server
+    ulimits:
+      nofile:
+        soft: 300001
+        hard: 300002
+    volumes:
+      - ./conf/metrika6.xml:/etc/metrika.xml
+    depends_on:
+      - zk1
+
+  client:
+    image: yandex/clickhouse-client
+    command: ["--host", "ck1"]
+
+  zk1:
+    image: wurstmeister/zookeeper:3.4.6

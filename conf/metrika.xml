@@ -1,0 +1,51 @@
+<yandex>
+  <clickhouse_remote_servers>
+    <cluster_3shards_2replicas>
+      <shard>
+        <internal_replication>true</internal_replication>
+        <replica>
+          <host>ck1</host>
+          <port>9000</port>
+        </replica>
+        <replica>
+          <host>ck2</host>
+          <port>9000</port>
+        </replica>
+      </shard>
+      <shard>
+        <internal_replication>true</internal_replication>
+        <replica>
+          <host>ck3</host>
+          <port>9000</port>
+        </replica>
+        <replica>
+          <host>ck4</host>
+          <port>9000</port>
+        </replica>
+      </shard>
+      <shard>
+        <internal_replication>true</internal_replication>
+        <replica>
+          <host>ck5</host>
+          <port>9000</port>
+        </replica>
+        <replica>
+          <host>ck6</host>
+          <port>9000</port>
+        </replica>
+      </shard>
+    </cluster_3shards_2replicas>
+  </clickhouse_remote_servers>
+
+  <zookeeper-servers>
+    <node index="1">
+      <host>zk1</host>
+      <port>2181</port>
+    </node>
+  </zookeeper-servers>
+
+  <macros>
+    <shard>1</shard>
+    <replica>1</replica>
+  </macros>
+</yandex>
